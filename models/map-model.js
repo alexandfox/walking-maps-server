@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const mapSchema = new Schema(
   {
     map: Object,
-    user: { type: Schema.Types.ObjectId, ref: "User" },
+    creator: { type: Schema.Types.ObjectId, ref: "User" },
     image: String,
     city: String,
     neighborhood: [String],
