@@ -1,5 +1,6 @@
 require("dotenv").config();
 require("./config/mongoconfig");
+require('./config/passport');
 
 const express = require('express');
 const cors = require("cors");
@@ -9,9 +10,9 @@ const session = require('express-session');
 const passport = require('passport');
 
 //API ROUTERS------------------------------------------------------------------------
-const apiUser = require("./api/user-model"); 
-const apiMap = require("./api/map-model"); 
-const apiComment = require("./api/comment-model"); 
+const apiUser = require("./api/user-route"); 
+const apiMap = require("./api/map-route"); 
+const apiComment = require("./api/comment-route"); 
 
 //BASIC SERVER CONFIG----------------------------------------------------------------
 
@@ -35,9 +36,9 @@ const authRoutes = require('./api/auth-routes');
 app.use('/api', authRoutes);
 
 //ROUTES PREFIXING-------------------------------------------------------------------
-app.use("/api/user", apiUser) 
-app.use("/api/map", apiMap) 
-app.use("/api/comment", apiComment) 
+app.use("/api/user-route", apiUser) 
+app.use("/api/map-route", apiMap) 
+app.use("/api/comment-route", apiComment) 
 
 app.get("/", (req,res) => {
   res.send("Hello maps!")

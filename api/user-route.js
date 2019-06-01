@@ -1,7 +1,6 @@
 const express = require("../node_modules/express")
 const router = new express.Router();
 const userModel = require("../models/user-model");
-const fileUpload = require("./../config/cloudinaryconfig")
 
 //API ENDPOINTS----------------------------------------------------------------------
 
