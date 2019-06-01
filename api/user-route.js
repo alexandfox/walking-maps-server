@@ -1,6 +1,7 @@
 const express = require("../node_modules/express")
 const router = new express.Router();
 const userModel = require("../models/user-model");
+const mapModel = require("../models/map-model")
 
 //API ENDPOINTS----------------------------------------------------------------------
 

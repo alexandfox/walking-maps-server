@@ -36,9 +36,9 @@ const authRoutes = require('./api/auth-routes');
 app.use('/api', authRoutes);
 
 //ROUTES PREFIXING-------------------------------------------------------------------
-app.use("/api/user-route", apiUser) 
-app.use("/api/map-route", apiMap) 
-app.use("/api/comment-route", apiComment) 
+app.use("/api/user", apiUser) 
+app.use("/api/map", apiMap) 
+app.use("/api/comment", apiComment) 
 
 app.get("/", (req,res) => {
   res.send("Hello maps!")
