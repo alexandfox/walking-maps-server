@@ -31,13 +31,7 @@ router.get("/:id", (req, res) => {
   mapModel
     .findById(req.params.id)
     .populate("creator")
-    .populate({
-      path: 'comments',
-      populate: {
-        path: 'creator',
-        model: 'User'
-      }
-    })
+    // .populate("user")
     .then(map => {
       res.status(200).json({ map })
     })
