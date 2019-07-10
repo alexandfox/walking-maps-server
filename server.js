@@ -5,9 +5,11 @@ require('./config/passport');
 const express = require('express');
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const app = express();
 const session = require('express-session');
 const passport = require('passport');
+const proxy = require('html2canvas-proxy');
+const app = express();
+
 
 //API ROUTERS------------------------------------------------------------------------
 const apiUser = require("./api/user-route"); 
@@ -21,6 +23,7 @@ app.use(cors({
   credentials: true,
   origin: ['http://localhost:3000']
 }));
+app.use('/', proxy());
 
 // AUTHENTICATION
 app.use(session({
