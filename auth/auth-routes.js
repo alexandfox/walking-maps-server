@@ -7,7 +7,6 @@ const jwt = require("jsonwebtoken");
 
 const User       = require('../models/user-model');
 
-
 authRoutes.post('/signup', (req, res, next) => {
 	const username = req.body.username;
 	const email = req.body.email;
@@ -86,13 +85,14 @@ authRoutes.post('/logout', (req, res, next) => {
     res.status(200).json({ message: 'Log out success!' });
 });
 
-authRoutes.get('/loggedin', (req, res, next) => {
-    if (req.isAuthenticated()) {
-        res.status(200).json(req.user);
-        return;
-    }
-    res.status(403).json({ message: 'Unauthorized' });
-});
+authRoutes.get('/instagram',
+  passport.authenticate('instagram'));
 
+authRoutes.get('/instagram/callback', 
+  passport.authenticate('instagram', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  });
 
 module.exports = authRoutes;

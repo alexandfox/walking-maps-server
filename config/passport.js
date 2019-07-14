@@ -18,7 +18,7 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new InstagramStrategy({
     clientID: INSTAGRAM_CLIENT_ID,
     clientSecret: INSTAGRAM_CLIENT_SECRET,
-    callbackURL: "/auth/instagram/callback"
+    callbackURL: "/api/instagram/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     userModel.findOne({ instagramId: profile.id }, (err, user) => {
