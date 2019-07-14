@@ -35,7 +35,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-const authRoutes = require('./api/auth-routes');
+const authRoutes = require('./auth/auth-routes');
 app.use('/api', authRoutes);
 
 //ROUTES PREFIXING-------------------------------------------------------------------
